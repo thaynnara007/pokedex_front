@@ -68,3 +68,13 @@
   margin-top: 0.5em;
   color: dimgrey;
 }
+
+.result{
+  background: white;
+  padding: 0.5em 0.7em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px hsla(162, 76%, 32%, .2);
+  font-size: 1em;
+  margin-top: 0.5em;
+  color: black;
+}

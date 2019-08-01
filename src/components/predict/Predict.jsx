@@ -11,7 +11,8 @@ class Predict extends React.Component{
     this.state = {
       file: null,
       url: null,
-      predictions: []
+      predictions: [],
+      result: null
     }
     this.renderImage = this.renderImage.bind(this)
     this.predict = this.predict.bind(this)
@@ -49,7 +50,8 @@ class Predict extends React.Component{
         this.setState({
           file: this.state.file,
           url: this.state.url,
-          predictions: response.data.predictions
+          predictions: response.data.predictions,
+          result: response.data.max
         })
       })
       .catch( error =>{
@@ -65,7 +67,9 @@ class Predict extends React.Component{
   renderPredictions(){
 
     var info = this.state.predictions.map((prediction, num) => {
-      return (<div key={num}><p className="p">{prediction.label}: {prediction.probability}</p></div>)
+
+      let className = (prediction.label == this.state.result.label) ? "result" : "p"
+      return (<div key={num}><p className={className}>{prediction.label}: {prediction.probability}</p></div>)
     })
 
     return info
